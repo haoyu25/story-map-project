@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  border-width: 0;
+  box-sizing: border-box;
+  height: 100vh;
+
+  font-family: 'Merriweather', serif;
+}
+
+.map-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+}
+
+.map {
+  height: 100%;
+}
+
+.cover {
+    background: linear-gradient(180deg, rgba(67, 92, 92, 0.748), rgb(66, 77, 92));
+    border: none;
+    margin: 0; 
+    padding: 20px; 
+}
+
+.cover-title {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+.cover p {
+  color: rgba(233, 233, 233, 0.836);
+  font-size: 1rem;
+}
+
+.slide-section {
+  position: relative;
+  margin-top: -30vh;
+  z-index: 100;
+  pointer-events: none;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.slide {
+  margin-top: 90vh;
+  margin-bottom: 90vh;
+  margin-left: 2rem;
+  margin-right: auto;
+  padding: 1rem;
+  box-shadow: -0.3rem 0.3rem 0.5rem rgba(255, 255, 255, 0.5);
+  border: 0px solid gray;
+  border-radius: 1rem;
+  pointer-events: initial;
+
+  width: 20rem;
+
+  background-color: rgba(67, 92, 92, 0.748);
+  backdrop-filter: blur(5px);
+}
+
+.highlight {
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
+
+.slide p {
+  color: rgba(255, 255, 255, 0.836);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 2;
+  text-align: justify;
+}
+
+.slide b {
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 2;
+}
+
+.slide:first-child {
+  margin-top: 0;
+}
+
+.slide:last-child {
+  margin-bottom: 40vh;
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  width: 100%;
+}
+
+.slide-nav-button {
+  transition: all 0.1s;
+
+  padding: 0;
+  margin: 1rem;
+  width: 4rem;
+  height: 3rem;
+  border: 1px solid #888;
+  border-radius: 0.25rem;
+
+  background-color: #eee;
+  font-size: 1.5em;
+}
+
+.slide-nav-button:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.permanent-tooltip {
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: #00ff00;                 
+  font-size: 8px;                       
+  border-radius: 4px;                   
+  padding: 2px 6px;                     
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+}
+
+.custom-tooltip {
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: #00ff00;                 
+  font-size: 8px;                       
+  border-radius: 4px;                   
+  padding: 2px 6px;                     
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgb(210, 236, 236) !important;
+  color: #fff; 
+  border-radius: 8px !important;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  padding: 0px 0px !important;
+}
+
+.leaflet-popup-tip {
+  background: rgb(210, 236, 236) !important;
+}
+
+.custom-popup {
+  max-width: 300px;
+  font-family: Arial, sans-serif;
+  background: rgb(210, 236, 236);
+  padding: 0px;
+  border-radius: 0px;
+  padding: 0px 0px !important;
+}
+
+.custom-popup h4 {
+  color: #2c3e50;
+  margin-bottom: 2px;
+}
+
+.popup-image {
+  width: 100%;
+  border-radius: 1px;
+  margin-top: 1px;
+}
+
+
+.slide-nav-select {
+  min-width: 0;
+}
+
+
+@media screen and (wid<=80);
+
+.info.legend {
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  font: 12px/16px Arial, sans-serif;
+  box-shadow: 0 0 0px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.836); 
+}
+
+.info.legend h4 {
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.info.legend i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* END Slide */
+
+.end {   
+  height: 100vh;  
+  width: 100%;    
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg,  rgb(66, 77, 92),rgba(67, 92, 92, 0.748));   
+  border: none;
+  margin: 0; 
+  padding: 5%; 
+  box-sizing: border-box;
+  color:#fff;
+}
+
+.end-title {
+  font-size: 1.5rem; 
+}
+
+.end-data {
+  color:#ffffffcb;
+  font-size: 1rem;
+}
+
+.end a {
+  color: #c4eddc;   
+  text-decoration: underline; 
+}
+
+.end a:hover {
+  color: #86e0ba;      
+  text-decoration: none; 
+}

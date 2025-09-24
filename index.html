@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Story</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="cover">
+    <h1 class="cover-title">Hangzhou Through the Years</h1>
+    <p class="cover-subtitle">Author: Zhu Haoyu | Date: 09-24-2025</p>
+      </div>
+
+  <main>
+    <div class="map-container">
+      <div class="map" id="map"></div>
+    </div>
+    <section class="slide-section">
+      <article class="slide" id="title-slide">
+        <p><span class="highlight">Hangzhou,</span> located in eastern China, has been inhabited since the late Neolithic period. The city grew along the Qiantang River and West Lake.</p>
+        <p>As the saying goes, <b>"Heaven above, Su and Hang below"</b>, Hangzhou has long been admired for its natural beauty and harmonious living blending urban growth with green spaces and waterways.</p>
+      </article>
+
+      <article class="slide" id="first-slide">
+         <p><span class="highlight">In 1990,</span> the built-up area was compact. The blue area shows the city limits, and green polygons show parks. Development was mostly around West Lake, where people lived, worked, and enjoyed leisure. Other small parks were scattered across the city.</p>
+      </article>
+
+      <article class="slide" id="second-slide">
+         <p><span class="highlight">By 2000,</span> the city expanded across the Qiantang River. Large parks were still few. A major new green space was North City Sports Park along the Grand Canal.</p>
+      </article>
+
+      <article class="slide" id="third-slide">
+         <p><span class="highlight">By 2010,</span> the city had grown further. Green spaces along the Qiantang River, Grand Canal, and Little River were preserved. Xixi Wetland became another natural retreat in the city.</p>
+       </article>
+
+       <article class="slide" id="fourth-slide">
+         <p><span class="highlight">As of 2020,</span> Hangzhou expanded rapidly and connected with suburban areas. Despite this growth, new districts maintained green space planning.</p>
+         <p>The new <b>Green Space Master Plan (2021-2035)</b> also set goals to make parks and green corridors accessible to everyone, ensuring plenty of greenery within 300-500 meters of people's homes.</p>
+       </article>
+    </section>
+  </main>
+
+  <div class="end">
+    <h1 class="end-title">Data Source</h1>
+    <p class="end-data">Boundary: TianDiTu. (2024). Administrative Division Boundary Data. TianDiTu Cloud Center.
+<a href="https://cloudcenter.tianditu.gov.cn/administrativeDivision" target="_blank">
+      https://cloudcenter.tianditu.gov.cn/administrativeDivision
+    </a></p>
+    <p class="end-data">Parks: TianDiTu. (2024). Administrative Division Boundary Data. TianDiTu Cloud Center.
+https://cloudcenter.tianditu.gov.cn/administrativeDivision</p>
+      </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>

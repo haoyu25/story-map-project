@@ -2,6 +2,13 @@ import { SlideDeck } from './slidedeck.js';
 
 const map = L.map('map', {scrollWheelZoom: false}).setView([0, 0], 0);
 
+map.dragging.disable();
+map.scrollWheelZoom.disable();
+map.doubleClickZoom.disable();
+map.boxZoom.disable();
+map.keyboard.disable();
+map.touchZoom.disable();
+
 
 const mapboxKey = 'pk.eyJ1Ijoiemh1aGFveXUiLCJhIjoiY21mZWNpcWNuMDIydDJscHdzZ2tybjhudiJ9.I0VnYRY6B6L7Np0K8LPH4g';
 const mapboxStyle = 'mapbox/navigation-night-v1';

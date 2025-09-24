@@ -221,16 +221,17 @@ body {
 
 .end-data {
   color:#ffffffcb;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .end a {
   color: #c4eddc;   
   text-decoration: underline; 
+  word-wrap: break-word;  
+  overflow-wrap: anywhere;
 }
 
 .end a:hover {
   color: #86e0ba;      
   text-decoration: none; 
 }
-

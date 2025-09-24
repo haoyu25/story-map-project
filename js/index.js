@@ -12,14 +12,15 @@ const map = L.map('map', {
 });
 
 
-const mapboxKey = 'pk.eyJ1Ijoiemh1aGFveXUiLCJhIjoiY21mZWNpcWNuMDIydDJscHdzZ2tybjhudiJ9.I0VnYRY6B6L7Np0K8LPH4g';
-const mapboxStyle = 'mapbox/navigation-night-v1';
-
-const baseTileLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/${mapboxStyle}/tiles/256/{z}/{x}/{y}?access_token=${mapboxKey}`, {
+//const mapboxKey = 'pk.eyJ1Ijoiemh1aGFveXUiLCJhIjoiY21mZWNpcWNuMDIydDJscHdzZ2tybjhudiJ9.I0VnYRY6B6L7Np0K8LPH4g';
+//const mapboxStyle = 'zhuhaoyu/cmfq3kjxh00hj01rydi598nbv';
+//mapbox://styles/zhuhaoyu/cmfog3n9i007e01s255uihrpd
+const baseTileLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiemh1aGFveXUiLCJhIjoiY21mZWNpcWNuMDIydDJscHdzZ2tybjhudiJ9.I0VnYRY6B6L7Np0K8LPH4g`, {
   maxZoom: 16,
   attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
 });
 baseTileLayer.addTo(map);
+
 
 // ## Interface Elements
 const container = document.querySelector('.slide-section');

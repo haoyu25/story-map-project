@@ -1,19 +1,19 @@
 import { SlideDeck } from './slidedeck.js';
 
-const map = L.map('map', {scrollWheelZoom: false}).setView([0, 0], 0);
-
-map.dragging.disable();
-map.scrollWheelZoom.disable();
-map.doubleClickZoom.disable();
-map.boxZoom.disable();
-map.keyboard.disable();
-map.touchZoom.disable();
+const map = L.map('map', {
+  center: [30.25, 120.15],
+  zoom: 12,
+  dragging: false,        
+  scrollWheelZoom: false,  
+  doubleClickZoom: false, 
+  boxZoom: false,        
+  keyboard: false,      
+  touchZoom: false       
+});
 
 
 const mapboxKey = 'pk.eyJ1Ijoiemh1aGFveXUiLCJhIjoiY21mZWNpcWNuMDIydDJscHdzZ2tybjhudiJ9.I0VnYRY6B6L7Np0K8LPH4g';
 const mapboxStyle = 'mapbox/navigation-night-v1';
-
-map.setView([30.25, 120.15], 12);
 
 const baseTileLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/${mapboxStyle}/tiles/256/{z}/{x}/{y}?access_token=${mapboxKey}`, {
   maxZoom: 16,

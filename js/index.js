@@ -29,7 +29,8 @@ var titleIcon = L.icon({
     iconUrl: 'data/park_label.png', 
     iconSize: [16, 16],               
     iconAnchor: [8, 8],            
-    popupAnchor: [0, -32]           
+    popupAnchor: [0, -32],
+    alt: 'Lable of park'           
 });
 
 const slideOptions = {
@@ -66,7 +67,7 @@ onEachFeature: (feature, layer) => {
   else if (feature.properties && feature.properties.year === 'title') {
     const popupContent = ` <div class="custom-popup">
     <h4>${feature.properties.name}</h4>
-    ${feature.properties.image ? `<img src="${feature.properties.image}" class="popup-image"/>` : ''}
+    ${feature.properties.image ? `<img src="${feature.properties.image}" alt="${feature.properties.name}" class="popup-image"/>` : ''}
   </div>
 `;
 layer.bindPopup(popupContent);
@@ -108,7 +109,7 @@ onEachFeature: (feature, layer) => {
   else if (feature.properties && ['title', '1990'].includes(feature.properties.year)) {
     const popupContent = ` <div class="custom-popup">
     <h4>${feature.properties.name}</h4>
-    ${feature.properties.image ? `<img src="${feature.properties.image}" class="popup-image"/>` : ''}
+    ${feature.properties.image ? `<img src="${feature.properties.image}" alt="${feature.properties.name}"  class="popup-image"/>` : ''}
   </div>
 `;
 layer.bindPopup(popupContent);
@@ -150,7 +151,7 @@ onEachFeature: (feature, layer) => {
   else if (feature.properties && ['title', '1990', '2000'].includes(feature.properties.year)) {
     const popupContent = ` <div class="custom-popup">
     <h4>${feature.properties.name}</h4>
-    ${feature.properties.image ? `<img src="${feature.properties.image}" class="popup-image"/>` : ''}
+    ${feature.properties.image ? `<img src="${feature.properties.image}" alt="${feature.properties.name}"  class="popup-image"/>` : ''}
   </div>
 `;
 layer.bindPopup(popupContent);
@@ -192,7 +193,7 @@ onEachFeature: (feature, layer) => {
   else if (feature.properties && ['title', '1990', '2000', '2010'].includes(feature.properties.year)) {
     const popupContent = ` <div class="custom-popup">
     <h4>${feature.properties.name}</h4>
-    ${feature.properties.image ? `<img src="${feature.properties.image}" class="popup-image"/>` : ''}
+    ${feature.properties.image ? `<img src="${feature.properties.image}" alt="${feature.properties.name}"  class="popup-image"/>` : ''}
   </div>
 `;
 layer.bindPopup(popupContent);
@@ -234,7 +235,7 @@ onEachFeature: (feature, layer) => {
   else if (feature.properties && ['title', '1990', '2000', '2010','2020'].includes(feature.properties.year)) {
     const popupContent = ` <div class="custom-popup">
     <h4>${feature.properties.name}</h4>
-    ${feature.properties.image ? `<img src="${feature.properties.image}" class="popup-image"/>` : ''}
+    ${feature.properties.image ? `<img src="${feature.properties.image}" alt="${feature.properties.name}"  class="popup-image"/>` : ''}
   </div>
 `;
 layer.bindPopup(popupContent);

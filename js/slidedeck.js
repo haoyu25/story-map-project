@@ -92,19 +92,19 @@ class SlideDeck {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     const adjustMapForSlide = (options, layer, collection) => {
-      if (isMobile) {
-        let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
-        const padFactor = 0.5;
-        const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
-        bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
-        this.map.flyToBounds(bounds);
-      } else if (options?.mapView) {
-        const { center, zoom } = options.mapView;
-        this.map.setView(center, zoom);
-      }
-    };
+  if (isMobile) {
+    let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
+    const center = bounds.getCenter();
+    const adjustedCenter = [center.lat + 0.02, center.lng];    
+    const zoom = this.map.getBoundsZoom(bounds);
+    this.map.setView(adjustedCenter, zoom);
+  } else if (options?.mapView) {
+    const { center, zoom } = options.mapView;
+    this.map.setView(center, zoom);
+  }
+};
 
-    adjustMapForSlide(options, layer, collection);
+adjustMapForSlide(options, layer, collection);
   }
 
   /**

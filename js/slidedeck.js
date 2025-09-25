@@ -10,7 +10,6 @@ class SlideDeck {
     this.currentSlideIndex = 0;
   }
 
-
   updateDataLayer(data, options) {
     this.dataLayer.clearLayers();
 
@@ -27,7 +26,7 @@ class SlideDeck {
         .addTo(this.dataLayer);
 
     return geoJsonLayer;
-  }s
+  }
   
   async getSlideFeatureCollection(slide) {
     const resp = await fetch(`data/${slide.id}.geojson`);
@@ -90,23 +89,24 @@ class SlideDeck {
 
     this.map.addEventListener('moveend', handleFlyEnd);
     
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-if (isMobile) {
-  let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
-  const padFactor = 0.2;
-  const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
-  bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
-  map.flyToBounds(bounds);
-} else if (options.mapView) {
-    const { center, zoom } = options.mapView;
-    this.map.setView(center, zoom);
-  } else if (collection.bbox) {
-    this.map.flyToBounds(boundsFromBbox(collection.bbox));
-  } else {
-    this.map.flyToBounds(layer.getBounds());
+    const adjustMapForSlide = (options, layer, collection) => {
+      if (isMobile) {
+        let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
+        const padFactor = 0.2;
+        const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
+        bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
+        this.map.flyToBounds(bounds);
+      } else if (options?.mapView) {
+        const { center, zoom } = options.mapView;
+        this.map.setView(center, zoom);
+      }
+    };
+
+    // 调用地图调整函数
+    adjustMapForSlide(options, layer, collection);
   }
-}
 
   /**
    * Show the slide with ID matched by currentSlideIndex. If currentSlideIndex is

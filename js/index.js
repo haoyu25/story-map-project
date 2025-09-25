@@ -30,7 +30,7 @@ var titleIcon = L.icon({
     iconSize: [16, 16],               
     iconAnchor: [8, 8],            
     popupAnchor: [0, -32],
-    alt: 'Lable of park'           
+    alt: 'Clickable park marker icon'        
 });
 
 const slideOptions = {
@@ -253,7 +253,7 @@ legend.onAdd = function (map) {
     <h4>Legend</h4>
     <i style="background:#9798fffe; opacity:0.5; border:2px solid white;"></i> Boundary<br>
     <i style="background:#80ff00ff; opacity:1;"></i>   Parks<br>
-    <img src="data/park_label.png" style="width:16px; height:16px; vertical-align:middle;"/>   Click it !
+    <img src="data/park_label.png" alt="Clickable park marker icon" style="width:16px; height:16px; vertical-align:middle;"/>   Click it !
   `;
   return div;
 };

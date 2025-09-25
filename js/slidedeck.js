@@ -89,12 +89,15 @@ class SlideDeck {
     };
 
     this.map.addEventListener('moveend', handleFlyEnd);
-    if (collection.bbox) {
-      this.map.flyToBounds(boundsFromBbox(collection.bbox));
-    } else {
-      this.map.flyToBounds(layer.getBounds());
-    }
+    if (options.mapView) {
+    const { center, zoom } = options.mapView;
+    this.map.setView(center, zoom);
+  } else if (collection.bbox) {
+    this.map.flyToBounds(boundsFromBbox(collection.bbox));
+  } else {
+    this.map.flyToBounds(layer.getBounds());
   }
+}
 
   /**
    * Show the slide with ID matched by currentSlideIndex. If currentSlideIndex is

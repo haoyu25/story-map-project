@@ -21,7 +21,6 @@ const baseTileLayer = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/navig
 });
 baseTileLayer.addTo(map);
 
-
 // ## Interface Elements
 const container = document.querySelector('.slide-section');
 const slides = document.querySelectorAll('.slide');
@@ -35,6 +34,7 @@ var titleIcon = L.icon({
 
 const slideOptions = {
   'title-slide': {
+    mapView: { center: [30.15, 120.15], zoom: 10 },
     pointToLayer: (feature, latlng) => {
       if (feature.properties && feature.properties.year === 'title') {
         return L.marker(latlng, { icon: titleIcon });
@@ -75,6 +75,7 @@ layer.bindPopup(popupContent);
 },
 
   'first-slide': {
+    mapView: { center: [30.254, 120.15], zoom: 13 },
     pointToLayer: (feature, latlng) => {
       if (feature.properties && ['title', '1990'].includes(feature.properties.year)) {
         return L.marker(latlng, { icon: titleIcon });
@@ -116,6 +117,7 @@ layer.bindPopup(popupContent);
   },
 
   'second-slide': {
+    mapView: { center: [30.24, 120.15], zoom: 12 },
     pointToLayer: (feature, latlng) => {
       if (feature.properties && ['title', '1990', '2000'].includes(feature.properties.year)) {
         return L.marker(latlng, { icon: titleIcon });
@@ -157,6 +159,7 @@ layer.bindPopup(popupContent);
   },
 
   'third-slide': {
+    mapView: { center: [30.252, 120.15], zoom: 11 },
     pointToLayer: (feature, latlng) => {
       if (feature.properties && ['title', '1990', '2000', '2010'].includes(feature.properties.year)) {
         return L.marker(latlng, { icon: titleIcon });
@@ -198,6 +201,7 @@ layer.bindPopup(popupContent);
   },
 
   'fourth-slide': {
+    mapView: { center: [30.252, 120.15], zoom: 11 },
     pointToLayer: (feature, latlng) => {
       if (feature.properties && ['title', '1990', '2000', '2010','2020'].includes(feature.properties.year)) {
         return L.marker(latlng, { icon: titleIcon });

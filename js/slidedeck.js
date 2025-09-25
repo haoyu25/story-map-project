@@ -90,15 +90,15 @@ class SlideDeck {
 
     this.map.addEventListener('moveend', handleFlyEnd);
     
-  
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 if (isMobile) {
+  let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
   const padFactor = 0.2;
   const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
   bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
-  this.map.flyToBounds(bounds);
-} else {
-    if (options.mapView) {
+  map.flyToBounds(bounds);
+} else if (options.mapView) {
     const { center, zoom } = options.mapView;
     this.map.setView(center, zoom);
   } else if (collection.bbox) {
@@ -106,7 +106,6 @@ if (isMobile) {
   } else {
     this.map.flyToBounds(layer.getBounds());
   }
-}
 }
 
   /**

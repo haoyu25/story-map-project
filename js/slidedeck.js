@@ -89,6 +89,15 @@ class SlideDeck {
     };
 
     this.map.addEventListener('moveend', handleFlyEnd);
+    
+  
+
+if (isMobile) {
+  const padFactor = 0.2;
+  const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
+  bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
+  this.map.flyToBounds(bounds);
+} else {
     if (options.mapView) {
     const { center, zoom } = options.mapView;
     this.map.setView(center, zoom);
@@ -97,6 +106,7 @@ class SlideDeck {
   } else {
     this.map.flyToBounds(layer.getBounds());
   }
+}
 }
 
   /**

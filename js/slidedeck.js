@@ -95,7 +95,7 @@ class SlideDeck {
   if (isMobile) {
     let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
     const center = bounds.getCenter();
-    const adjustedCenter = [center.lat + 0.02, center.lng];    
+    const adjustedCenter = [center.lat + 0.1, center.lng];    
     const zoom = this.map.getBoundsZoom(bounds);
     this.map.setView(adjustedCenter, zoom);
   } else if (options?.mapView) {

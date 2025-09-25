@@ -94,7 +94,7 @@ class SlideDeck {
     const adjustMapForSlide = (options, layer, collection) => {
       if (isMobile) {
         let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
-        const padFactor = 0.2;
+        const padFactor = 0.5;
         const south = bounds.getSouth() + (bounds.getNorth() - bounds.getSouth()) * padFactor;
         bounds = L.latLngBounds([south, bounds.getWest()], [bounds.getNorth(), bounds.getEast()]);
         this.map.flyToBounds(bounds);
@@ -104,7 +104,6 @@ class SlideDeck {
       }
     };
 
-    // 调用地图调整函数
     adjustMapForSlide(options, layer, collection);
   }
 

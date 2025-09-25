@@ -92,16 +92,22 @@ class SlideDeck {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     const adjustMapForSlide = (options, layer, collection) => {
-  if (isMobile) {
-    let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
-    const center = bounds.getCenter();
-    const adjustedCenter = [center.lat + 0.1, center.lng];    
-    const zoom = this.map.getBoundsZoom(bounds);
-    this.map.setView(adjustedCenter, zoom);
-  } else if (options?.mapView) {
-    const { center, zoom } = options.mapView;
-    this.map.setView(center, zoom);
-  }
+if (isMobile) {
+  let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
+  const center = bounds.getCenter();
+  
+  const latSpan = bounds.getNorth() - bounds.getSouth();
+  
+  const offsetPercentage = 0.25;
+  const latOffset = latSpan * offsetPercentage;
+  
+  const adjustedCenter = [center.lat - latOffset, center.lng];
+  const zoom = this.map.getBoundsZoom(bounds);
+  this.map.setView(adjustedCenter, zoom);
+} else if (options?.mapView) {
+  const { center, zoom } = options.mapView;
+  this.map.setView(center, zoom);
+}
 };
 
 adjustMapForSlide(options, layer, collection);

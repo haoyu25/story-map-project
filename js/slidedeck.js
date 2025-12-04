@@ -1,5 +1,4 @@
 class SlideDeck {
-
   constructor(container, slides, map, slideOptions = {}) {
     this.container = container;
     this.slides = slides;
@@ -20,20 +19,20 @@ class SlideDeck {
         if (feature.properties && feature.properties.label) {
           layer.bindTooltip(feature.properties.label);
         }
-      }
+      },
     };
     const geoJsonLayer = L.geoJSON(data, options || defaultOptions)
         .addTo(this.dataLayer);
 
     return geoJsonLayer;
   }
-  
+
   async getSlideFeatureCollection(slide) {
     const resp = await fetch(`data/${slide.id}.geojson`);
     const data = await resp.json();
     return data;
   }
-  
+
   /**
    * ### hideAllSlides
    *
@@ -88,29 +87,29 @@ class SlideDeck {
     };
 
     this.map.addEventListener('moveend', handleFlyEnd);
-    
+
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     const adjustMapForSlide = (options, layer, collection) => {
-if (isMobile) {
-  let bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
-  const center = bounds.getCenter();
-  
-  const latSpan = bounds.getNorth() - bounds.getSouth();
-  
-  const offsetPercentage = 0.25;
-  const latOffset = latSpan * offsetPercentage;
-  
-  const adjustedCenter = [center.lat - latOffset, center.lng];
-  const zoom = this.map.getBoundsZoom(bounds);
-  this.map.setView(adjustedCenter, zoom);
-} else if (options?.mapView) {
-  const { center, zoom } = options.mapView;
-  this.map.setView(center, zoom);
-}
-};
+      if (isMobile) {
+        const bounds = collection?.bbox ? boundsFromBbox(collection.bbox) : layer.getBounds();
+        const center = bounds.getCenter();
 
-adjustMapForSlide(options, layer, collection);
+        const latSpan = bounds.getNorth() - bounds.getSouth();
+
+        const offsetPercentage = 0.25;
+        const latOffset = latSpan * offsetPercentage;
+
+        const adjustedCenter = [center.lat - latOffset, center.lng];
+        const zoom = this.map.getBoundsZoom(bounds);
+        this.map.setView(adjustedCenter, zoom);
+      } else if (options?.mapView) {
+        const { center, zoom } = options.mapView;
+        this.map.setView(center, zoom);
+      }
+    };
+
+    adjustMapForSlide(options, layer, collection);
   }
 
   /**
